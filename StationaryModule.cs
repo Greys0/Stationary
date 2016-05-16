@@ -8,30 +8,27 @@ namespace StationaryVessels
 		public bool isFrozen;
 		private StationaryVesselModule SVM;
 
-		public void Start ()
+		public void Start()
 		{
-			SVM = vessel.GetComponent<StationaryVesselModule> ();
+			SVM = vessel.GetComponent<StationaryVesselModule>();
 
 		}
 
-		public void UpdateButton ()
+		public void UpdateButton()
 		{
-			Events ["ToggleFreeze"].guiName = isFrozen ? "Is Frozen: No" : "Is Frozen: Yes";
+			Events["ToggleFreeze"].guiName = isFrozen ? "Is Frozen: No" : "Is Frozen: Yes";
 		}
 
 		[KSPEvent(guiActive = true, guiName = "Is Frozen: No")]
-		public void ToggleFreeze ()
+		public void ToggleFreeze()
 		{
-			SVM.setFreeze (!isFrozen);
+			SVM.setFreeze(!isFrozen);
 		}
 
 		[KSPAction("Toggle Freeze")]
-		public void ToggleFreezeAction (KSPActionParam param)
+		public void ToggleFreezeAction(KSPActionParam param)
 		{
-			ToggleFreeze ();
+			ToggleFreeze();
 		}
-
-
-
 	}
 }
